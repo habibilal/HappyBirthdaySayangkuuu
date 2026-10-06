@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 16th Birthday, Nur Hafizah! 💖✨</title>
+  
+  <!-- Meta SEO & Social Sharing -->
+  <meta name="description" content="Spesial website ucapan ulang tahun yang ke-16 untuk Nur Hafizah. Penuh cinta, doa, dan kenangan indah." />
+  <meta property="og:title" content="Happy 16th Birthday, Nur Hafizah! 🎂" />
+  <meta property="og:description" content="A special birthday surprise made with all my love for you, Hafizah." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Poppins (Modern Clean) & Caveat + Sacramento (Romantic Handwritten) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Poppins:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Canvas Confetti Library via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* ========================================================
+       1. DESIGN SYSTEM & CSS VARIABLES
+       ======================================================== */
+    :root {
+      --primary-pink: #ff6584;
+      --soft-pink: #ffd6e0;
+      --blush-pink: #fff0f3;
+      --deep-rose: #d81b60;
+      --warm-cream: #fffaf0;
+      --gold-accent: #f6d365;
+      --text-dark: #3a2e39;
+      --text-muted: #7d6b7d;
+      --glass-bg: rgba(255, 255, 255, 0.72);
+      --glass-border: rgba(255, 255, 255, 0.85);
+      --glass-shadow: 0 15px 35px rgba(255, 105, 135, 0.15);
+      --font-main: 'Poppins', sans-serif;
+      --font-hand: 'Caveat', cursive;
+      --font-romantic: 'Sacramento', cursive;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background: linear-gradient(135deg, #ffeef2 0%, #fff0f5 35%, #ffd6e0 70%, #ffccd5 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Falling Petals Canvas */
+    #petals-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Background Glow Blobs */
+    .glow-blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.55;
+      animation: floatBlob 18s ease-in-out infinite alternate;
+    }
+    .glow-blob-1 {
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, #ff9a9e 0%, #fecfef 80%);
+      top: -100px;
+      left: -100px;
+    }
+    .glow-blob-2 {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, #ffccd5 0%, #ffd1dc 70%);
+      bottom: 5%;
+      right: -120px;
+      animation-delay: -7s;
+    }
+    .glow-blob-3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #ffe4e6 0%, #fbcfe8 80%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -12s;
+    }
+
+    @keyframes floatBlob {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, 60px) scale(1.1); }
+      100% { transform: translate(-30px, 30px) scale(0.95); }
+    }
+
+    /* Layout Wrapper */
+    .page-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+    }
+
+    /* ========================================================
+       2. MUSIC PLAYER WIDGET (FLOATING DOCK)
+       ======================================================== */
+    .music-player-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 8px 18px 8px 10px;
+      box-shadow: 0 10px 30px rgba(216, 27, 96, 0.2);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+    }
+    .music-player-widget:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 16px 36px rgba(216, 27, 96, 0.28);
+    }
+    .disc-container {
+      position: relative;
+      width: 44px;
+      height: 44px;
+    }
+    .vinyl-disc {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #333 30%, #111 60%, #444 90%);
+      border: 2px solid #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spinDisc 6s linear infinite;
+      animation-play-state: paused;
+    }
+    .vinyl-disc::after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      background: var(--primary-pink);
+      border: 2px solid white;
+      border-radius: 50%;
+    }
+    .vinyl-disc.playing {
+      animation-play-state: running;
+    }
+    @keyframes spinDisc {
+      100% { transform: rotate(360deg); }
+    }
+    .music-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .music-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+    .music-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .btn-play-pause {
+      background: var(--primary-pink);
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 101, 132, 0.4);
+      transition: transform 0.2s ease;
+    }
+    .btn-play-pause:hover {
+      transform: scale(1.1);
+    }
+
+    /* ========================================================
+       3. HERO SECTION
+       ======================================================== */
+    .hero-section {
+      text-align: center;
+      padding: 40px 16px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .badge-sweet-sixteen {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 8px 22px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 101, 132, 0.3);
+      color: var(--deep-rose);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 20px rgba(255, 101, 132, 0.12);
+      animation: pulseBadge 2.5s infinite ease-in-out;
+    }
+    @keyframes pulseBadge {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+      text-shadow: 0 2px 10px rgba(255, 105, 135, 0.1);
+    }
+    .hero-title .name-highlight {
+      background: linear-gradient(135deg, #ff4071 0%, #d81b60 60%, #8e24aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      position: relative;
+    }
+    .hero-title .name-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 101, 132, 0.25);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .hero-subtitle strong {
+      color: var(--deep-rose);
+      font-weight: 600;
+    }
+
+    /* Countdown / Milestone Card */
+    .countdown-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 24px 32px;
+      box-shadow: var(--glass-shadow);
+      margin-bottom: 36px;
+      display: inline-block;
+      max-width: 600px;
+      width: 100%;
+    }
+    .countdown-header {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .countdown-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 12px 6px;
+      box-shadow: 0 4px 15px rgba(255, 101, 132, 0.08);
+      border: 1px solid rgba(255, 204, 213, 0.6);
+      transition: transform 0.2s ease;
+    }
+    .countdown-item:hover {
+      transform: translateY(-3px);
+    }
+    .countdown-num {
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 700;
+      color: var(--deep-rose);
+      display: block;
+      line-height: 1.1;
+    }
+    .countdown-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* Hero Buttons */
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .btn-romantic-primary {
+      background: linear-gradient(135deg, #ff6584 0%, #d81b60 100%);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 24px rgba(216, 27, 96, 0.35);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-decoration: none;
+    }
+    .btn-romantic-primary:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 30px rgba(216, 27, 96, 0.45);
+    }
+    .btn-romantic-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--deep-rose);
+      border: 1.5px solid rgba(255, 101, 132, 0.4);
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-romantic-secondary:hover {
+      background: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(255, 101, 132, 0.2);
+    }
+
+    /* ========================================================
+       4. INTERACTIVE CAKE & WISH SECTION
+       ======================================================== */
+    .cake-section {
+      text-align: center;
+      margin: 60px 0 70px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 44px 24px;
+      box-shadow: var(--glass-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .section-tag {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--deep-rose);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 550px;
+      margin: 0 auto 30px;
+      font-size: 0.98rem;
+    }
+
+    /* Animated CSS Cake */
+    .cake-wrapper {
+      position: relative;
+      width: 220px;
+      height: 180px;
+      margin: 0 auto 30px;
+      cursor: pointer;
+    }
+    .cake-plate {
+      width: 240px;
+      height: 16px;
+      background: #f1f2f6;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+    .cake-tier-bottom {
+      width: 190px;
+      height: 60px;
+      background: linear-gradient(to right, #ff9bb2, #ffccd5);
+      border-radius: 14px 14px 4px 4px;
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.05);
+    }
+    .cake-frosting {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 14px 14px 8px 8px;
+    }
+    .cake-tier-top {
+      width: 130px;
+      height: 52px;
+      background: linear-gradient(to right, #ffccd5, #ffb3c1);
+      border-radius: 12px 12px 4px 4px;
+      position: absolute;
+      bottom: 74px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .cake-candle {
+      width: 12px;
+      height: 38px;
+      background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ff6584 5px, #ff6584 10px);
+      border-radius: 4px;
+      position: absolute;
+      bottom: 126px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .candle-flame {
+      width: 16px;
+      height: 24px;
+      background: radial-gradient(circle at 50% 80%, #fff 20%, #ffe066 50%, #ff5722 90%);
+      border-radius: 50% 50% 35% 35%;
+      position: absolute;
+      bottom: 164px;
+      left: 50%;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 0 12px rgba(255, 193, 7, 0.8));
+      animation: flicker 1s ease-in-out infinite alternate;
+      transition: all 0.5s ease;
+    }
+    .candle-flame.blown-out {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.2);
+    }
+    @keyframes flicker {
+      0% { transform: translateX(-50%) rotate(-2deg) scale(1); }
+      50% { transform: translateX(-50%) rotate(2deg) scale(1.08); }
+      100% { transform: translateX(-50%) rotate(-1deg) scale(0.95); }
+    }
+    .candle-smoke {
+      position: absolute;
+      bottom: 165px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: rgba(180, 180, 180, 0.6);
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .candle-smoke.active {
+      animation: smokeRise 1.8s ease-out forwards;
+    }
+    @keyframes smokeRise {
+      0% { opacity: 0.8; transform: translate(-50%, 0) scale(1); }
+      100% { opacity: 0; transform: translate(-40%, -45px) scale(3.5); filter: blur(4px); }
+    }
+
+    .wish-message {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--deep-rose);
+      margin-top: 18px;
+      min-height: 28px;
+      transition: opacity 0.4s ease;
+    }
+
+    /* ========================================================
+       5. LDR VIDEO CALL SCREENSHOT GALLERY
+       ======================================================== */
+    .gallery-section {
+      margin: 70px 0 80px;
+    }
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .ldr-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 9px 24px;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 101, 132, 0.35);
+      color: var(--deep-rose);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 22px rgba(255, 101, 132, 0.12);
+    }
+    .ldr-banner .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulseGreen 1.6s infinite ease-in-out;
+    }
+    @keyframes pulseGreen {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.7; }
+    }
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px 26px;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    .polaroid-card {
+      background: #ffffff;
+      padding: 14px 14px 20px;
+      border-radius: 20px;
+      box-shadow: 0 14px 35px rgba(216, 27, 96, 0.1), 0 3px 8px rgba(0,0,0,0.04);
+      width: 310px;
+      flex: 0 1 310px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    /* Cute Washi Tape effect on polaroid */
+    .polaroid-card::before {
+      content: '';
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 76px;
+      height: 23px;
+      background: rgba(255, 182, 193, 0.78);
+      backdrop-filter: blur(3px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+      clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+      z-index: 5;
+    }
+    /* Subtle natural tilt for cards */
+    .polaroid-card:nth-child(1) { transform: rotate(-2.5deg); }
+    .polaroid-card:nth-child(2) { transform: rotate(2deg); }
+    .polaroid-card:nth-child(3) { transform: rotate(-2deg); }
+    .polaroid-card:nth-child(4) { transform: rotate(2.5deg); }
+    .polaroid-card:nth-child(5) { transform: rotate(-2deg); }
+
+    .polaroid-card:hover {
+      transform: rotate(0deg) translateY(-12px) scale(1.03);
+      box-shadow: 0 24px 45px rgba(216, 27, 96, 0.22);
+      z-index: 10;
+    }
+
+    /* Video Call Screen Mockup inside Card */
+    .vc-screen-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #181419;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+    }
+    .polaroid-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .polaroid-card:hover .polaroid-img {
+      transform: scale(1.05);
+    }
+    /* Special cute frame for transparent sticker/finger heart photo */
+    .vc-screen-wrapper.avatar-mode {
+      background: radial-gradient(circle at center, #fff0f5 0%, #ffd6e0 60%, #ffccd5 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .vc-screen-wrapper.avatar-mode .polaroid-img {
+      object-fit: contain;
+      object-position: center bottom;
+      height: 94%;
+      width: auto;
+      filter: drop-shadow(0 10px 20px rgba(216, 27, 96, 0.25));
+    }
+
+    /* Video Call UI Overlay Elements */
+    .vc-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 14px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      font-size: 0.78rem;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .vc-contact-info {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+    .vc-call-duration {
+      background: rgba(0, 0, 0, 0.45);
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-family: monospace;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Small Picture-in-Picture window (You / Pacar) */
+    .vc-pip-window {
+      position: absolute;
+      top: 48px;
+      right: 12px;
+      width: 74px;
+      height: 98px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      z-index: 4;
+      background: #2b252d;
+    }
+    .vc-pip-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .vc-pip-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 0.62rem;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      padding: 1px 0;
+      font-weight: 500;
+    }
+
+    /* Bottom VC action buttons bar */
+    .vc-bottom-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 22px 14px 10px;
+      background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      z-index: 3;
+    }
+    .vc-control-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.72rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      pointer-events: none;
+    }
+    .vc-control-btn.btn-end-call {
+      background: #ff3b30;
+      width: 32px;
+      height: 32px;
+      font-size: 0.82rem;
+      border: none;
+    }
+    .vc-control-btn.btn-heart-vc {
+      background: #ff2d55;
+      color: #fff;
+      border: none;
+    }
+
+    .polaroid-caption {
+      margin-top: 14px;
+      text-align: center;
+      font-family: var(--font-hand);
+      font-size: 1.45rem;
+      color: #3f2e3c;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .polaroid-subcaption {
+      font-size: 0.8rem;
+      color: #6d5b6b;
+      text-align: center;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .polaroid-date {
+      display: inline-block;
+      font-family: var(--font-main);
+      font-size: 0.72rem;
+      color: #b08293;
+      background: #fff0f3;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 8px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* ========================================================
+       6. INTERACTIVE LOVE LETTER & ENVELOPE SECTION
+       ======================================================== */
+    .letter-section {
+      text-align: center;
+      margin: 80px 0 60px;
+    }
+    
+    .envelope-container {
+      position: relative;
+      width: 290px;
+      height: 200px;
+      background: #f8a5b8;
+      border-radius: 12px;
+      margin: 40px auto 30px;
+      cursor: pointer;
+      box-shadow: 0 20px 40px rgba(216, 27, 96, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      perspective: 1000px;
+    }
+    .envelope-container:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 26px 50px rgba(216, 27, 96, 0.3);
+    }
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 145px solid transparent;
+      border-right: 145px solid transparent;
+      border-top: 110px solid #f07f97;
+      transform-origin: top;
+      transition: transform 0.6s ease;
+      z-index: 3;
+    }
+    .envelope-pocket {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 145px solid #ffccd5;
+      border-right: 145px solid #ffccd5;
+      border-bottom: 110px solid #ffaec0;
+      border-top: 90px solid transparent;
+      border-radius: 0 0 12px 12px;
+      z-index: 2;
+    }
+    .wax-seal {
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      background: radial-gradient(circle, #e91e63, #c2185b);
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      border: 2px dashed rgba(255, 255, 255, 0.6);
+      transition: transform 0.3s ease;
+    }
+    .envelope-container:hover .wax-seal {
+      transform: translateX(-50%) scale(1.12);
+    }
+    .envelope-preview-paper {
+      position: absolute;
+      bottom: 15px;
+      left: 20px;
+      width: 250px;
+      height: 140px;
+      background: #fffdfa;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      padding: 16px;
+      box-sizing: border-box;
+      transition: transform 0.6s ease;
+    }
+    .envelope-preview-paper .preview-line {
+      height: 8px;
+      background: #f1e2e6;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .envelope-preview-paper .preview-line:nth-child(1) { width: 50%; }
+    .envelope-preview-paper .preview-line:nth-child(2) { width: 90%; }
+    .envelope-preview-paper .preview-line:nth-child(3) { width: 75%; }
+
+    /* Open Envelope State (Animation) */
+    .envelope-container.opened .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 0;
+    }
+    .envelope-container.opened .envelope-preview-paper {
+      transform: translateY(-50px);
+    }
+
+    /* ========================================================
+       7. LETTER MODAL (ROMANTIC PARCHMENT POPUP)
+       ======================================================== */
+    .letter-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(40, 20, 30, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+    .letter-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .letter-modal-content {
+      background: #fffdfa;
+      background-image: 
+        radial-gradient(#fae3ea 1px, transparent 1px),
+        radial-gradient(#fae3ea 1px, #fffdfa 1px);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      border-radius: 24px;
+      padding: 44px 38px 40px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+      border: 8px solid #fff;
+      outline: 1px solid rgba(255, 101, 132, 0.25);
+      transform: scale(0.85) translateY(20px);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+    .letter-modal-overlay.active .letter-modal-content {
+      transform: scale(1) translateY(0);
+    }
+    .btn-close-modal {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffeef2;
+      color: var(--deep-rose);
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .btn-close-modal:hover {
+      background: var(--deep-rose);
+      color: #fff;
+      transform: rotate(90deg);
+    }
+    .letter-header {
+      text-align: center;
+      margin-bottom: 24px;
+      border-bottom: 2px dashed #f6ccd5;
+      padding-bottom: 20px;
+    }
+    .letter-tag {
+      font-family: var(--font-hand);
+      font-size: 1.6rem;
+      color: var(--primary-pink);
+    }
+    .letter-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 4px;
+    }
+    .letter-body {
+      font-family: var(--font-main);
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #4a3e47;
+    }
+    .letter-body p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+    .letter-quote {
+      font-family: var(--font-romantic);
+      font-size: 2.2rem;
+      color: var(--deep-rose);
+      text-align: center;
+      margin: 24px 0 16px;
+      line-height: 1.2;
+    }
+    .letter-signature {
+      text-align: right;
+      margin-top: 32px;
+      font-family: var(--font-hand);
+      font-size: 1.6rem;
+      color: var(--deep-rose);
+    }
+    .letter-signature span {
+      display: block;
+      font-family: var(--font-main);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ========================================================
+       8. SWEET MILESTONE REASONS / COMPLIMENTS
+       ======================================================== */
+    .reasons-section {
+      margin: 70px 0;
+    }
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .reason-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(255, 101, 132, 0.08);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .reason-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 30px rgba(255, 101, 132, 0.16);
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .reason-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #ffe4e9;
+      color: var(--deep-rose);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    .reason-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .reason-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ========================================================
+       9. LIGHTBOX MODAL FOR POLAROIDS
+       ======================================================== */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 10, 15, 0.88);
+      backdrop-filter: blur(10px);
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      padding: 20px;
+    }
+    .lightbox-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox-content {
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 70vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      border: 4px solid white;
+    }
+    .lightbox-caption {
+      color: white;
+      font-family: var(--font-hand);
+      font-size: 1.8rem;
+      margin-top: 16px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -46px;
+      right: 0;
+      color: white;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* Floating Heart on Tap/Click */
+    .floating-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: floatUp 1.2s ease-out forwards;
+      font-size: 22px;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.6);
+      }
+      50% {
+        opacity: 0.9;
+        transform: translate(-50%, -80px) scale(1.2) rotate(15deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -140px) scale(1.4) rotate(-15deg);
+      }
+    }
+
+    /* ========================================================
+       10. FOOTER
+       ======================================================== */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 30px 20px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      border-top: 1px solid rgba(255, 101, 132, 0.2);
+    }
+    footer .love-icon {
+      color: var(--primary-pink);
+      display: inline-block;
+      animation: heartBeat 1.4s infinite;
+    }
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.25); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.2); }
+      70% { transform: scale(1); }
+    }
+
+    /* ========================================================
+       11. RESPONSIVE DESIGN (MOBILE & TABLET FIXES)
+       ======================================================== */
+    @media (max-width: 768px) {
+      .page-container {
+        padding: 16px 14px 100px;
+      }
+      .countdown-card {
+        padding: 18px 16px;
+      }
+      .countdown-grid {
+        gap: 8px;
+      }
+      .countdown-item {
+        padding: 10px 4px;
+      }
+      .letter-modal-content {
+        padding: 32px 20px 28px;
+      }
+      .music-player-widget {
+        bottom: 16px;
+        right: 16px;
+        padding: 6px 14px 6px 8px;
+      }
+      .music-title {
+        max-width: 120px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .polaroid-card {
+        max-width: 280px;
+      }
+      .polaroid-img-wrapper {
+        height: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Falling Cherry Blossom / Rose Petals Canvas -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- Ambient Glowing Blobs -->
+  <div class="glow-blob glow-blob-1"></div>
+  <div class="glow-blob glow-blob-2"></div>
+  <div class="glow-blob glow-blob-3"></div>
+
+  <!-- ========================================================
+       AUDIO BACKGROUND PLAYER
+       ========================================================
+       PETUNJUK GANTI MUSIK:
+       Untuk mengganti lagu dengan file lagu Anda sendiri:
+       1. Letakkan file lagu (misal: lagu-kita.mp3) di folder yang sama dengan file index.html ini.
+       2. Ganti atribut src pada tag <audio> di bawah ini menjadi: src="lagu-kita.mp3"
+       3. Atau bisa juga gunakan tautan URL audio langsung (.mp3) dari internet.
+  -->
+  <audio id="bg-audio" loop preload="auto">
+    <!-- Lagu Spesial Pilihan Habibilal: Perfect (Piano Version) -->
+    <source src="music.mp3" type="audio/mpeg" />
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg" />
+    Browser Anda tidak mendukung pemutar audio HTML5.
+  </audio>
+
+  <!-- Floating Music Player Widget -->
+  <aside class="music-player-widget" id="musicToggleBtn" title="Klik untuk putar / jeda musik romantis">
+    <div class="disc-container">
+      <div class="vinyl-disc" id="vinylDisc"></div>
+    </div>
+    <div class="music-info">
+      <span class="music-title">Perfect (Piano Version) 🎵</span>
+      <span class="music-sub" id="musicStatusText">Klik untuk Putar</span>
+    </div>
+    <button class="btn-play-pause" id="playPauseIconBtn" aria-label="Play or Pause">
+      <i class="fa-solid fa-play" id="playIcon"></i>
+    </button>
+  </aside>
+
+  <!-- Main Container -->
+  <div class="page-container">
+
+    <!-- ========================================================
+         HERO SECTION
+         ======================================================== -->
+    <header class="hero-section">
+      <div class="badge-sweet-sixteen">
+        <i class="fa-solid fa-sparkles"></i> Habibilal Alta & Nur Hafizah • Sweet Sixteen ✨
+      </div>
+
+      <h1 class="hero-title">
+        Happy Birthday,<br />
+        <span class="name-highlight">Nur Hafizah!</span> 💖
+      </h1>
+
+      <p class="hero-subtitle">
+        Selamat ulang tahun yang ke-16 untuk bidadari terindahku, <strong>Nur Hafizah</strong>! 
+        Persembahan cinta dan rindu paling tulus dari <strong>Habibilal Alta</strong>. Semoga dunia selalu memelukmu dengan kebahagiaan, tawa manis, dan kasih sayang yang tak pernah usai.
+      </p>
+
+      <!-- Countdown / Birthday Status Card -->
+      <section class="countdown-card" aria-label="Hitung Mundur Ulang Tahun">
+        <div class="countdown-header">
+          <i class="fa-regular fa-clock" style="color: var(--deep-rose);"></i>
+          <span id="countdownTitle">Menghitung Hari Bahagia: 7 Oktober</span>
+        </div>
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <span class="countdown-num" id="days">00</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="hours">00</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="minutes">00</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="seconds">00</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hero Call To Actions -->
+      <nav class="hero-cta-group">
+        <button class="btn-romantic-primary" id="btnOpenLetterHero">
+          <i class="fa-solid fa-envelope-open-text"></i> Buka Surat Cinta
+        </button>
+        <button class="btn-romantic-secondary" id="btnBlowCandleScroll">
+          <i class="fa-solid fa-cake-candles"></i> Tiup Lilin 🎂
+        </button>
+        <a href="#gallerySection" class="btn-romantic-secondary">
+          <i class="fa-regular fa-images"></i> Galeri Kenangan
+        </a>
+      </nav>
+    </header>
+
+    <!-- ========================================================
+         INTERACTIVE BIRTHDAY CAKE & MAKE A WISH
+         ======================================================== -->
+    <section class="cake-section" id="cakeSection">
+      <div class="section-tag">Interactive Surprise</div>
+      <h2 class="section-title">Tiup Lilin Ulang Tahunmu! 🎂</h2>
+      <p class="section-desc">
+        Pejamkan matamu sebentar, ucapkan permohonan tulusmu di dalam hati, lalu klik lilin atau tombol di bawah untuk meniup lilinnya!
+      </p>
+
+      <div class="cake-wrapper" id="cakeInteractive" title="Klik untuk tiup lilin!">
+        <div class="cake-plate"></div>
+        <div class="cake-tier-bottom">
+          <div class="cake-frosting"></div>
+        </div>
+        <div class="cake-tier-top">
+          <div class="cake-frosting"></div>
+        </div>
+        <div class="cake-candle"></div>
+        <div class="candle-flame" id="candleFlame"></div>
+        <div class="candle-smoke" id="candleSmoke"></div>
+      </div>
+
+      <button class="btn-romantic-primary" id="btnBlowCandle">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Tiup Lilin & Buat Harapan
+      </button>
+
+      <div class="wish-message" id="wishMessageText">
+        Lilin sedang menyala... ayo tiup sekarang! ✨
+      </div>
+    </section>
+
+    <!-- ========================================================
+         LDR VIDEO CALL SCREENSHOT GALLERY (MOMEN VC KITA)
+         ========================================================
+         PETUNJUK GANTI FOTO SCREENSHOT VC:
+         1. Siapkan 6 foto screenshot saat kalian berdua sedang Video Call (VC).
+         2. Simpan foto-foto tersebut di folder yang sama dengan file index.html ini
+            (misalnya beri nama: vc1.jpg, vc2.jpg, vc3.jpg, dst).
+         3. Ganti atribut src="..." pada tag <img> di bawah ini:
+            - Foto Utama Hafizah di VC: cari class="polaroid-img" -> ganti src="..."
+            - Foto Mini Kamu di Pojok (PiP): cari class="vc-pip-img" -> ganti src="..." (atau biarkan default)
+         4. Anda juga bebas mengubah Durasi Call, Caption, dan Cerita Manis di bawah setiap screenshot!
+    -->
+    <section class="gallery-section" id="gallerySection">
+      <div class="gallery-header">
+        <div class="ldr-banner">
+          <span class="pulse-dot"></span>
+          <span>LDR Virtual Love • Habibilal & Hafizah 📶</span>
+        </div>
+        <h2 class="section-title">Screenshot Video Call Kita 📱💖</h2>
+        <p class="section-desc">
+          Walau raga terpisah jarak, setiap detik menatap senyum manis Hafizah lewat layar selalu berhasil membuat hati Habibilal tenang dan bahagia. Inilah momen-momen VC favorit kita:
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- FOTO SCREENSHOT VC 1 -->
+        <article class="polaroid-card" onclick="openLightbox(this)">
+          <div class="vc-screen-wrapper">
+            <div class="vc-top-bar">
+              <div class="vc-contact-info">
+                <i class="fa-solid fa-video" style="color: #ff6584;"></i>
+                <span>Nur Hafizah 💕</span>
+              </div>
+              <span class="vc-call-duration">14.35 • VC</span>
+            </div>
+
+            <!-- Foto Asli VC 1 (Hafizah Hijab & Habibilal di PiP) -->
+            <img class="polaroid-img" src="images/vc1.jpg" alt="VC Nur Hafizah dan Habibilal Alta" loading="lazy" />
+
+            <div class="vc-bottom-controls">
+              <div class="vc-control-btn"><i class="fa-solid fa-microphone"></i></div>
+              <div class="vc-control-btn"><i class="fa-solid fa-camera-rotate"></i></div>
+              <div class="vc-control-btn btn-end-call"><i class="fa-solid fa-phone-slash"></i></div>
+              <div class="vc-control-btn btn-heart-vc" onclick="event.stopPropagation(); triggerCelebrationConfetti();" title="Kirim Hati!"><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </div>
+
+          <div class="polaroid-caption">Senyuman Cantik Berhijab 🌸</div>
+          <p class="polaroid-subcaption">Momen pas kamu lagi manis-manisnya dengerin ceritaku sambil benerin kerudung.</p>
+          <span class="polaroid-date"><i class="fa-solid fa-signal" style="color: #10b981;"></i> 14.35 • Habibilal & Hafizah 💕</span>
+        </article>
+
+        <!-- FOTO SCREENSHOT VC 2 -->
+        <article class="polaroid-card" onclick="openLightbox(this)">
+          <div class="vc-screen-wrapper">
+            <div class="vc-top-bar">
+              <div class="vc-contact-info">
+                <i class="fa-solid fa-video" style="color: #ff6584;"></i>
+                <span>Nur Hafizah 💕</span>
+              </div>
+              <span class="vc-call-duration">11.57 • VC</span>
+            </div>
+
+            <!-- Foto Asli VC 2 (Hafizah Senyum Manis & Habibilal di PiP) -->
+            <img class="polaroid-img" src="images/vc2.jpg" alt="Senyum Manis Nur Hafizah di VC" loading="lazy" />
+
+            <div class="vc-bottom-controls">
+              <div class="vc-control-btn"><i class="fa-solid fa-microphone"></i></div>
+              <div class="vc-control-btn"><i class="fa-solid fa-camera-rotate"></i></div>
+              <div class="vc-control-btn btn-end-call"><i class="fa-solid fa-phone-slash"></i></div>
+              <div class="vc-control-btn btn-heart-vc" onclick="event.stopPropagation(); triggerCelebrationConfetti();"><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </div>
+
+          <div class="polaroid-caption">Tatap Manis Bidadariku ✨</div>
+          <p class="polaroid-subcaption">Senyum dan tatapan matamu yang selalu bikin deg-degan meski cuma lewat layar HP.</p>
+          <span class="polaroid-date"><i class="fa-solid fa-heart" style="color: #ff6584;"></i> 11.57 • Senyum Paling Candu 💖</span>
+        </article>
+
+        <!-- FOTO SCREENSHOT VC 3 -->
+        <article class="polaroid-card" onclick="openLightbox(this)">
+          <div class="vc-screen-wrapper">
+            <div class="vc-top-bar">
+              <div class="vc-contact-info">
+                <i class="fa-solid fa-video" style="color: #ff6584;"></i>
+                <span>Nur Hafizah 💕</span>
+              </div>
+              <span class="vc-call-duration">19.11 • Tidur</span>
+            </div>
+
+            <!-- Foto Asli VC 3 (Hafizah Ketiduran & Habibilal Menjaga) -->
+            <img class="polaroid-img" src="images/vc3.jpg" alt="Hafizah Ketiduran di VC" loading="lazy" />
+
+            <div class="vc-bottom-controls">
+              <div class="vc-control-btn"><i class="fa-solid fa-microphone"></i></div>
+              <div class="vc-control-btn"><i class="fa-solid fa-camera-rotate"></i></div>
+              <div class="vc-control-btn btn-end-call"><i class="fa-solid fa-phone-slash"></i></div>
+              <div class="vc-control-btn btn-heart-vc" onclick="event.stopPropagation(); triggerCelebrationConfetti();"><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </div>
+
+          <div class="polaroid-caption">VC Sampai Hafizah Ketiduran 💤</div>
+          <p class="polaroid-subcaption">Tertidur pulas ditemani telepon. Habibilal jagain kamu dari jauh sampai terlelap nyenyak.</p>
+          <span class="polaroid-date"><i class="fa-solid fa-moon" style="color: #8b5cf6;"></i> 19.11 • Sayangku Disenyapkan 🌙</span>
+        </article>
+
+        <!-- FOTO SCREENSHOT VC 4 -->
+        <article class="polaroid-card" onclick="openLightbox(this)">
+          <div class="vc-screen-wrapper">
+            <div class="vc-top-bar">
+              <div class="vc-contact-info">
+                <i class="fa-solid fa-video" style="color: #ff6584;"></i>
+                <span>Nur Hafizah 💕</span>
+              </div>
+              <span class="vc-call-duration">00.11 • VC</span>
+            </div>
+
+            <!-- Foto Asli VC 4 (Hafizah Benerin Rambut & Habibilal Tersenyum) -->
+            <img class="polaroid-img" src="images/vc4.jpg" alt="Ekspresi Lucu Nur Hafizah" loading="lazy" />
+
+            <div class="vc-bottom-controls">
+              <div class="vc-control-btn"><i class="fa-solid fa-microphone"></i></div>
+              <div class="vc-control-btn"><i class="fa-solid fa-camera-rotate"></i></div>
+              <div class="vc-control-btn btn-end-call"><i class="fa-solid fa-phone-slash"></i></div>
+              <div class="vc-control-btn btn-heart-vc" onclick="event.stopPropagation(); triggerCelebrationConfetti();"><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </div>
+
+          <div class="polaroid-caption">Gemas Pas Benerin Rambut 💚</div>
+          <p class="polaroid-subcaption">Gerakan refleks paling menggemaskan di dunia. Habibilal selalu senyum sendiri ngeliatnya!</p>
+          <span class="polaroid-date"><i class="fa-solid fa-clock" style="color: #10b981;"></i> 00.11 • Malam Penuh Cerita ☕</span>
+        </article>
+
+        <!-- FOTO 5: SPECIAL CUTOUT FINGER HEART -->
+        <article class="polaroid-card" onclick="openLightbox(this)">
+          <div class="vc-screen-wrapper avatar-mode">
+            <div class="vc-top-bar">
+              <div class="vc-contact-info">
+                <i class="fa-solid fa-sparkles" style="color: #ff6584;"></i>
+                <span>Special Pose 💕</span>
+              </div>
+              <span class="vc-call-duration">16th Birthday</span>
+            </div>
+
+            <!-- Foto Asli 5 (Hafizah Finger Heart Cutout) -->
+            <img class="polaroid-img" src="images/vc5.png" alt="Saranghaeyo Nur Hafizah" loading="lazy" />
+
+            <div class="vc-bottom-controls">
+              <div class="vc-control-btn"><i class="fa-solid fa-heart" style="color: #ff6584;"></i></div>
+              <div class="vc-control-btn"><i class="fa-solid fa-cake-candles" style="color: #f59e0b;"></i></div>
+              <div class="vc-control-btn btn-heart-vc" onclick="event.stopPropagation(); triggerCelebrationConfetti();" title="Kirim Hati!"><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </div>
+
+          <div class="polaroid-caption">Saranghaeyo Sayang 🫰💖</div>
+          <p class="polaroid-subcaption">Pose finger heart paling imut khusus dipersembahkan Hafizah untuk Habibilal Alta!</p>
+          <span class="polaroid-date"><i class="fa-solid fa-star" style="color: #f59e0b;"></i> Sweet 16 Milestone • Nur Hafizah ✨</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         INTERACTIVE LOVE LETTER / SURAT CINTA
+         ======================================================== -->
+    <section class="letter-section" id="letterSection">
+      <div class="section-tag">Special Message From The Heart</div>
+      <h2 class="section-title">Surat Cinta Untuk Nur Hafizah 💌</h2>
+      <p class="section-desc">
+        Ada sepucuk surat rahasia berisikan untaian doa dan perasaan yang paling dalam. Klik amplop di bawah ini untuk membukanya:
+      </p>
+
+      <!-- 3D Interactive Envelope -->
+      <div class="envelope-container" id="envelopeBox" title="Klik untuk membuka surat cinta romantis">
+        <div class="envelope-flap"></div>
+        <div class="envelope-preview-paper">
+          <div class="preview-line"></div>
+          <div class="preview-line"></div>
+          <div class="preview-line"></div>
+        </div>
+        <div class="envelope-pocket"></div>
+        <div class="wax-seal" title="Segel Cinta Habibilal Alta & Nur Hafizah">
+          <span style="font-family: var(--font-romantic); font-size: 1.35rem; font-weight: bold; line-height: 1;">H&H</span>
+        </div>
+      </div>
+
+      <button class="btn-romantic-primary" id="btnOpenLetterModal">
+        <i class="fa-solid fa-envelope"></i> Buka Surat Sekarang
+      </button>
+    </section>
+
+    <!-- ========================================================
+         SWEET 16 MILESTONE REASONS (COMPLIMENTS)
+         ======================================================== -->
+    <section class="reasons-section">
+      <div style="text-align: center;">
+        <div class="section-tag">Why You Mean The World To Me</div>
+        <h2 class="section-title">Hal-Hal Yang Membuat Habibilal Jatuh Cinta Padamu ✨</h2>
+      </div>
+
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-icon"><i class="fa-solid fa-face-smile-wink"></i></div>
+          <h3 class="reason-title">Senyuman Yang Menghangatkan</h3>
+          <p class="reason-desc">Setiap kali kamu tersenyum atau tertawa lepas di layar telepon, semua rasa lelah dan kekhawatiran di duniaku seketika sirna begitu saja.</p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h3 class="reason-title">Hati Yang Lembut & Tulus</h3>
+          <p class="reason-desc">Kebaikan hatimu, caramu menyayangi orang di sekitarmu, dan ketulusanmu selalu membuat Habibilal bersyukur memiliki kamu.</p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-icon"><i class="fa-solid fa-star"></i></div>
+          <h3 class="reason-title">Penyemangat Terhebat</h3>
+          <p class="reason-desc">Hafizah bukan hanya sekadar pacar, tapi rumah ternyaman tempat Habibilal selalu ingin pulang dan merajut masa depan bersama.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FOOTER
+         ======================================================== -->
+    <footer>
+      <p>Dibuat dengan segenap <span class="love-icon"><i class="fa-solid fa-heart"></i></span> oleh <strong>Habibilal Alta</strong> khusus untuk <strong>Nur Hafizah</strong></p>
+      <p style="margin-top: 6px; font-size: 0.8rem; color: #9c8a99;">7 Oktober 2010 • Sweet Sixteen LDR Birthday Celebration</p>
+    </footer>
+
+  </div>
+
+  <!-- ========================================================
+       MODAL POPUP: SURAT CINTA (PARCHMENT LETTER)
+       ======================================================== -->
+  <div class="letter-modal-overlay" id="letterModalOverlay" role="dialog" aria-modal="true">
+    <div class="letter-modal-content">
+      <button class="btn-close-modal" id="btnCloseLetterModal" aria-label="Tutup Surat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="letter-header">
+        <span class="letter-tag">Dari Habibilal Alta untuk Bidadari Tercinta,</span>
+        <h2 class="letter-title">Nur Hafizah ✨</h2>
+      </div>
+
+      <div class="letter-body">
+        <p>
+          <strong>Selamat Ulang Tahun yang ke-16, Nur Hafizah sayang! 🎉❤️</strong>
+        </p>
+
+        <p>
+          Hari ini, tepat tanggal <strong>7 Oktober</strong>, adalah salah satu hari paling indah dan istimewa bagi Habibilal. Karena di tanggal inilah 16 tahun yang lalu, seseorang yang begitu luar biasa, manis, dan berharga dilahirkan ke dunia ini.
+        </p>
+
+        <p>
+          Terima kasih sudah lahir ke dunia ini, Hafizah sayang. Terima kasih telah hadir dalam hidup Habibilal, membawa warna-warna baru yang begitu cerah dan hangat. Setiap obrolan kita, tawa lepasmu di video call, bahkan saat kamu ketiduran di depan layar, selalu menjadi bagian terbaik dalam hari-hariku.
+        </p>
+
+        <div class="letter-quote">
+          "Hafizah, kamu adalah alasan di balik senyum paling tulus dan doa paling panjang yang selalu Habibilal panjatkan setiap hari..."
+        </div>
+
+        <p>
+          Di usiamu yang ke-16 ini—fase <em>sweet sixteen</em> yang begitu indah—doa tulus Habibilal untukmu: semoga Hafizah selalu diberikan kesehatan, kelapangan hati, kemudahan dalam setiap langkah dan impianmu, serta senantiasa dilindungi oleh Tuhan Yang Maha Esa. Tetaplah menjadi Hafizah yang ceria, rendah hati, berhati lembut, dan selalu membuat Habibilal bangga memilikimu.
+        </p>
+
+        <p>
+          Meskipun saat ini kita sedang terhalang oleh jarak (LDR) dan hanya bisa saling menatap lewat layar kaca saat video call, percayalah bahwa ribuan kilometer yang membentang tidak akan pernah sedikit pun melunturkan rasa sayang Habibilal padamu. Justru setiap detik kita berbincang di telepon dan setiap screenshot senyuman manismu selalu menjadi penguat serta bukti betapa berartinya dirimu untukku.
+        </p>
+
+        <p>
+          Apapun yang akan kamu hadapi di masa depan, ingatlah bahwa kamu tidak pernah sendirian. Walau saat ini ragaku belum bisa memelukmu secara langsung, doa dan hatiku selalu memelukmu erat dari kejauhan. Habibilal berjanji suatu hari nanti, jarak ini akan kalah oleh temu, dan kita akan meniup lilin ulang tahun berdampingan bersama.
+        </p>
+
+        <p>
+          Sekali lagi, selamat ulang tahun yang ke-16 ya, bidadariku sayang! Semoga hari ini membawakan sejuta kebahagiaan yang pantas kamu dapatkan. 💖🎂✨
+        </p>
+
+        <div class="letter-signature">
+          Dengan seluruh rasa sayang dan rinduku,<br />
+          <strong>❤️ Habibilal Alta</strong>
+          <span>Selamanya mencintaimu • 7 Oktober</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL UNTUK PREVIEW FOTO POLAROID -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightboxDirect()">&times;</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="Preview Foto" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       JAVASCRIPT LOGIC
+       ======================================================== -->
+  <script>
+    /* ----------------------------------------------------
+       1. PETALS CANVAS ANIMATION (SAKURA / ROSE PETALS)
+       ---------------------------------------------------- */
+    const canvas = document.getElementById('petals-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const petals = [];
+    const petalColors = ['#ffccd5', '#ffb3c1', '#ffd6e0', '#ff6584', '#ffaec0'];
+
+    class Petal {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * -height * 0.5;
+        this.size = Math.random() * 8 + 8;
+        this.speedX = Math.random() * 1.5 - 0.75;
+        this.speedY = Math.random() * 1.2 + 0.8;
+        this.rotation = Math.random() * 360;
+        this.rotationSpeed = (Math.random() - 0.5) * 1.5;
+        this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+        this.opacity = Math.random() * 0.6 + 0.4;
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX + Math.sin(this.y * 0.01) * 0.4;
+        this.rotation += this.rotationSpeed;
+        if (this.y > height + 20 || this.x < -20 || this.x > width + 20) {
+          this.reset();
+          this.y = -10;
+        }
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate((this.rotation * Math.PI) / 180);
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = this.color;
+        
+        // Draw petal curve
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(-this.size / 2, -this.size / 2, -this.size / 2, this.size / 2, 0, this.size);
+        ctx.bezierCurveTo(this.size / 2, this.size / 2, this.size / 2, -this.size / 2, 0, 0);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < 28; i++) {
+      petals.push(new Petal());
+    }
+
+    function animatePetals() {
+      ctx.clearRect(0, 0, width, height);
+      petals.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animatePetals);
+    }
+    animatePetals();
+
+    /* ----------------------------------------------------
+       2. BACKGROUND MUSIC CONTROLLER
+       ---------------------------------------------------- */
+    const bgAudio = document.getElementById('bg-audio');
+    const musicToggleBtn = document.getElementById('musicToggleBtn');
+    const vinylDisc = document.getElementById('vinylDisc');
+    const playIcon = document.getElementById('playIcon');
+    const musicStatusText = document.getElementById('musicStatusText');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        bgAudio.pause();
+        vinylDisc.classList.remove('playing');
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+        musicStatusText.textContent = 'Klik untuk Putar';
+        isPlaying = false;
+      } else {
+        bgAudio.play().then(() => {
+          vinylDisc.classList.add('playing');
+          playIcon.classList.remove('fa-play');
+          playIcon.classList.add('fa-pause');
+          musicStatusText.textContent = 'Memutar Musik 💖';
+          isPlaying = true;
+        }).catch(err => {
+          console.warn("Autoplay was prevented by browser policy:", err);
+        });
+      }
+    }
+
+    musicToggleBtn.addEventListener('click', toggleMusic);
+
+    // Auto-attempt playback on first user touch/click anywhere on page
+    function firstInteractionPlay() {
+      if (!isPlaying) {
+        bgAudio.play().then(() => {
+          vinylDisc.classList.add('playing');
+          playIcon.classList.remove('fa-play');
+          playIcon.classList.add('fa-pause');
+          musicStatusText.textContent = 'Memutar Musik 💖';
+          isPlaying = true;
+        }).catch(() => {});
+      }
+      window.removeEventListener('click', firstInteractionPlay);
+      window.removeEventListener('touchstart', firstInteractionPlay);
+    }
+    window.addEventListener('click', firstInteractionPlay, { once: true });
+    window.addEventListener('touchstart', firstInteractionPlay, { once: true });
+
+    /* ----------------------------------------------------
+       3. BIRTHDAY COUNTDOWN / MILESTONE TIMER
+          Nur Hafizah: Born 7 October 2010 (Turning 16 in 2026)
+       ---------------------------------------------------- */
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const countdownTitle = document.getElementById('countdownTitle');
+
+    function updateCountdown() {
+      const now = new Date();
+      let currentYear = now.getFullYear();
+      
+      // Target: 7 October of current year
+      let targetDate = new Date(currentYear, 9, 7, 0, 0, 0); // Month 9 is October (0-indexed)
+
+      // If past October 7 in the current year, set to next year's celebration
+      if (now.getTime() > targetDate.getTime() + 86400000) {
+        targetDate = new Date(currentYear + 1, 9, 7, 0, 0, 0);
+      }
+
+      const diff = targetDate.getTime() - now.getTime();
+
+      // If today is October 7
+      if (now.getMonth() === 9 && now.getDate() === 7) {
+        countdownTitle.innerHTML = "🎉 HARI INI HARI SPESIAL HAFIZAH! 🎉";
+        daysEl.textContent = "16";
+        document.querySelector('.countdown-item:nth-child(1) .countdown-label').textContent = "Tahun";
+        hoursEl.textContent = "07";
+        minutesEl.textContent = "10";
+        secondsEl.textContent = "💖";
+        return;
+      }
+
+      if (diff > 0) {
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / 1000 / 60) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+
+        daysEl.textContent = String(d).padStart(2, '0');
+        hoursEl.textContent = String(h).padStart(2, '0');
+        minutesEl.textContent = String(m).padStart(2, '0');
+        secondsEl.textContent = String(s).padStart(2, '0');
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    /* ----------------------------------------------------
+       4. CONFETTI CELEBRATION TRIGGER
+       ---------------------------------------------------- */
+    function triggerCelebrationConfetti() {
+      // Left and right cannons
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { x: 0.1, y: 0.7 },
+        colors: ['#ff6584', '#ffd6e0', '#f6d365', '#d81b60', '#ffffff']
+      });
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { x: 0.9, y: 0.7 },
+        colors: ['#ff6584', '#ffd6e0', '#f6d365', '#d81b60', '#ffffff']
+      });
+
+      // Center burst
+      setTimeout(() => {
+        confetti({
+          particleCount: 120,
+          spread: 100,
+          origin: { x: 0.5, y: 0.5 },
+          colors: ['#ff4071', '#ffccd5', '#ffe66d', '#ffffff']
+        });
+      }, 300);
+    }
+
+    // Trigger initial celebration when page loads
+    window.addEventListener('load', () => {
+      setTimeout(triggerCelebrationConfetti, 1000);
+    });
+
+    /* ----------------------------------------------------
+       5. INTERACTIVE CAKE & CANDLE BLOWING
+       ---------------------------------------------------- */
+    const candleFlame = document.getElementById('candleFlame');
+    const candleSmoke = document.getElementById('candleSmoke');
+    const btnBlowCandle = document.getElementById('btnBlowCandle');
+    const cakeInteractive = document.getElementById('cakeInteractive');
+    const wishMessageText = document.getElementById('wishMessageText');
+    let candleBlown = false;
+
+    function blowCandle() {
+      if (!candleBlown) {
+        candleBlown = true;
+        candleFlame.classList.add('blown-out');
+        candleSmoke.classList.add('active');
+
+        wishMessageText.innerHTML = "✨ Lilin ditiup! Semoga semua doa & harapan indah Hafizah dikabulkan! Amin 🤲💖";
+        btnBlowCandle.innerHTML = '<i class="fa-solid fa-rotate-right"></i> Nyalakan Lilin Lagi';
+
+        triggerCelebrationConfetti();
+      } else {
+        // Relight candle
+        candleBlown = false;
+        candleFlame.classList.remove('blown-out');
+        candleSmoke.classList.remove('active');
+        wishMessageText.textContent = "Lilin menyala kembali... Pejamkan mata & buat harapan! ✨";
+        btnBlowCandle.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> Tiup Lilin & Buat Harapan';
+      }
+    }
+
+    btnBlowCandle.addEventListener('click', blowCandle);
+    cakeInteractive.addEventListener('click', blowCandle);
+
+    document.getElementById('btnBlowCandleScroll').addEventListener('click', () => {
+      document.getElementById('cakeSection').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    /* ----------------------------------------------------
+       6. INTERACTIVE LOVE LETTER MODAL
+       ---------------------------------------------------- */
+    const letterModalOverlay = document.getElementById('letterModalOverlay');
+    const btnCloseLetterModal = document.getElementById('btnCloseLetterModal');
+    const btnOpenLetterModal = document.getElementById('btnOpenLetterModal');
+    const btnOpenLetterHero = document.getElementById('btnOpenLetterHero');
+    const envelopeBox = document.getElementById('envelopeBox');
+
+    function openLetterModal() {
+      envelopeBox.classList.add('opened');
+      setTimeout(() => {
+        letterModalOverlay.classList.add('active');
+        triggerCelebrationConfetti();
+      }, 400);
+    }
+
+    function closeLetterModal() {
+      letterModalOverlay.classList.remove('active');
+      setTimeout(() => {
+        envelopeBox.classList.remove('opened');
+      }, 300);
+    }
+
+    btnOpenLetterModal.addEventListener('click', openLetterModal);
+    btnOpenLetterHero.addEventListener('click', openLetterModal);
+    envelopeBox.addEventListener('click', openLetterModal);
+    btnCloseLetterModal.addEventListener('click', closeLetterModal);
+
+    letterModalOverlay.addEventListener('click', (e) => {
+      if (e.target === letterModalOverlay) {
+        closeLetterModal();
+      }
+    });
+
+    /* ----------------------------------------------------
+       7. POLAROID LIGHTBOX PREVIEW
+       ---------------------------------------------------- */
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+
+    function openLightbox(polaroidEl) {
+      const img = polaroidEl.querySelector('.polaroid-img');
+      const caption = polaroidEl.querySelector('.polaroid-caption');
+      const sub = polaroidEl.querySelector('.polaroid-subcaption');
+      const duration = polaroidEl.querySelector('.vc-call-duration');
+      lightboxImg.src = img.src;
+      lightboxCaption.innerHTML = `
+        <div style="font-size: 1.6rem; font-family: var(--font-hand); color: #fff;">${caption.textContent}</div>
+        ${duration ? `<div style="font-size: 0.8rem; font-family: monospace; color: #ffd6e0; margin: 4px 0 8px;">⏱️ Durasi Video Call: ${duration.textContent}</div>` : ''}
+        ${sub ? `<div style="font-size: 0.95rem; font-family: var(--font-main); color: #fce7f3; font-weight: 300; line-height: 1.5; max-width: 420px; margin: 0 auto;">${sub.textContent}</div>` : ''}
+      `;
+      lightboxModal.classList.add('active');
+    }
+
+    function closeLightbox(event) {
+      if (event.target === lightboxModal) {
+        lightboxModal.classList.remove('active');
+      }
+    }
+
+    function closeLightboxDirect() {
+      lightboxModal.classList.remove('active');
+    }
+
+    /* ----------------------------------------------------
+       8. FLOATING HEARTS ON CLICK / TAP
+       ---------------------------------------------------- */
+    const heartIcons = ['💖', '💕', '🌸', '✨', '💐', '❤️', '🧁'];
+    window.addEventListener('click', (e) => {
+      // Don't spawn hearts if clicking interactive controls directly
+      if (e.target.closest('button') || e.target.closest('.music-player-widget') || e.target.closest('.polaroid-card')) {
+        return;
+      }
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+      heart.style.left = `${e.clientX}px`;
+      heart.style.top = `${e.clientY}px`;
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

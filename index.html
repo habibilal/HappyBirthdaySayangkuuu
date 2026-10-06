@@ -619,6 +619,8 @@
     .polaroid-card:nth-child(3) { transform: rotate(-2deg); }
     .polaroid-card:nth-child(4) { transform: rotate(2.5deg); }
     .polaroid-card:nth-child(5) { transform: rotate(-2deg); }
+    .polaroid-card:nth-child(6) { transform: rotate(2deg); }
+    .polaroid-card:nth-child(7) { transform: rotate(-2.5deg); }
 
     .polaroid-card:hover {
       transform: rotate(0deg) translateY(-12px) scale(1.03);
@@ -1366,16 +1368,64 @@
       <div class="gallery-header">
         <div class="ldr-banner">
           <span class="pulse-dot"></span>
-          <span>LDR Virtual Love • Habibilal & Hafizah 📶</span>
+          <span>Koleksi Momen Terindah • Habibilal & Hafizah 🌸</span>
         </div>
-        <h2 class="section-title">Screenshot Video Call Kita 📱💖</h2>
+        <h2 class="section-title">Momen Manis & Senyuman Nur Hafizah 📸💖</h2>
         <p class="section-desc">
-          Walau raga terpisah jarak, setiap detik menatap senyum manis Hafizah lewat layar selalu berhasil membuat hati Habibilal tenang dan bahagia. Inilah momen-momen VC favorit kita:
+          Setiap potret dan senyumanmu selalu menjadi pemandangan terindah di mata Habibilal. Dari foto selfie manismu hingga momen hangat saat kita saling bertatap muka:
         </p>
       </div>
 
       <div class="gallery-grid">
-        <!-- FOTO SCREENSHOT VC 1 -->
+        <!-- FOTO 1: SELFIE FILTER MAHKOTA HATI -->
+        <article class="polaroid-card" onclick="openLightbox(this)">
+          <div class="vc-screen-wrapper">
+            <div class="vc-top-bar">
+              <div class="vc-contact-info">
+                <i class="fa-solid fa-crown" style="color: #ff6584;"></i>
+                <span>Queen Hafizah 👑</span>
+              </div>
+              <span class="vc-call-duration">Selfie Favorit</span>
+            </div>
+
+            <img class="polaroid-img" src="images/selfie-filter.jpg" alt="Selfie Cantik Nur Hafizah dengan Mahkota Hati" loading="lazy" />
+
+            <div class="vc-bottom-controls">
+              <div class="vc-control-btn"><i class="fa-solid fa-sparkles" style="color: #fbcfe8;"></i></div>
+              <div class="vc-control-btn btn-heart-vc" onclick="event.stopPropagation(); triggerCelebrationConfetti();" title="Kirim Hati!"><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </div>
+
+          <div class="polaroid-caption">Bidadari Mahkota Cinta 👑💖</div>
+          <p class="polaroid-subcaption">Filter mahkota hati di kepalamu pas banget, karena kamu memang ratu di hati Habibilal!</p>
+          <span class="polaroid-date"><i class="fa-solid fa-star" style="color: #f59e0b;"></i> My Favorite Selfie • Cantik Banget</span>
+        </article>
+
+        <!-- FOTO 2: CLOSE-UP SWEET SELFIE -->
+        <article class="polaroid-card" onclick="openLightbox(this)">
+          <div class="vc-screen-wrapper">
+            <div class="vc-top-bar">
+              <div class="vc-contact-info">
+                <i class="fa-solid fa-heart" style="color: #ff6584;"></i>
+                <span>Nur Hafizah 💕</span>
+              </div>
+              <span class="vc-call-duration">Sweet Smile</span>
+            </div>
+
+            <img class="polaroid-img" src="images/selfie1.jpg" alt="Tatap Manis Bidadariku Nur Hafizah" loading="lazy" />
+
+            <div class="vc-bottom-controls">
+              <div class="vc-control-btn"><i class="fa-solid fa-camera" style="color: #fff;"></i></div>
+              <div class="vc-control-btn btn-heart-vc" onclick="event.stopPropagation(); triggerCelebrationConfetti();" title="Kirim Hati!"><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </div>
+
+          <div class="polaroid-caption">Tatap Manis Bidadariku ✨</div>
+          <p class="polaroid-subcaption">Mata indah dan senyum tipismu yang selalu sukses bikin deg-degan setiap saat.</p>
+          <span class="polaroid-date"><i class="fa-solid fa-heart" style="color: #ff6584;"></i> Cantik Natural • Bikin Jatuh Hati</span>
+        </article>
+
+        <!-- FOTO 3: VC HIJAB HITAM -->
         <article class="polaroid-card" onclick="openLightbox(this)">
           <div class="vc-screen-wrapper">
             <div class="vc-top-bar">
@@ -1386,7 +1436,6 @@
               <span class="vc-call-duration">14.35 • VC</span>
             </div>
 
-            <!-- Foto Asli VC 1 (Hafizah Hijab & Habibilal di PiP) -->
             <img class="polaroid-img" src="images/vc1.jpg" alt="VC Nur Hafizah dan Habibilal Alta" loading="lazy" />
 
             <div class="vc-bottom-controls">
@@ -1402,7 +1451,7 @@
           <span class="polaroid-date"><i class="fa-solid fa-signal" style="color: #10b981;"></i> 14.35 • Habibilal & Hafizah 💕</span>
         </article>
 
-        <!-- FOTO SCREENSHOT VC 2 -->
+        <!-- FOTO 4: VC SENYUM LEPAS -->
         <article class="polaroid-card" onclick="openLightbox(this)">
           <div class="vc-screen-wrapper">
             <div class="vc-top-bar">
@@ -1413,7 +1462,6 @@
               <span class="vc-call-duration">11.57 • VC</span>
             </div>
 
-            <!-- Foto Asli VC 2 (Hafizah Senyum Manis & Habibilal di PiP) -->
             <img class="polaroid-img" src="images/vc2.jpg" alt="Senyum Manis Nur Hafizah di VC" loading="lazy" />
 
             <div class="vc-bottom-controls">
@@ -1424,12 +1472,12 @@
             </div>
           </div>
 
-          <div class="polaroid-caption">Tatap Manis Bidadariku ✨</div>
-          <p class="polaroid-subcaption">Senyum dan tatapan matamu yang selalu bikin deg-degan meski cuma lewat layar HP.</p>
-          <span class="polaroid-date"><i class="fa-solid fa-heart" style="color: #ff6584;"></i> 11.57 • Senyum Paling Candu 💖</span>
+          <div class="polaroid-caption">Senyum Paling Menghangatkan 💫</div>
+          <p class="polaroid-subcaption">Duduk berdua di depan kamera, senyum manismu selalu jadi obat lelah terbaik bagi Habibilal.</p>
+          <span class="polaroid-date"><i class="fa-solid fa-heart" style="color: #ff6584;"></i> 11.57 • Senyum Bikin Candu 💖</span>
         </article>
 
-        <!-- FOTO SCREENSHOT VC 3 -->
+        <!-- FOTO 5: VC KETIDURAN -->
         <article class="polaroid-card" onclick="openLightbox(this)">
           <div class="vc-screen-wrapper">
             <div class="vc-top-bar">
@@ -1440,7 +1488,6 @@
               <span class="vc-call-duration">19.11 • Tidur</span>
             </div>
 
-            <!-- Foto Asli VC 3 (Hafizah Ketiduran & Habibilal Menjaga) -->
             <img class="polaroid-img" src="images/vc3.jpg" alt="Hafizah Ketiduran di VC" loading="lazy" />
 
             <div class="vc-bottom-controls">
@@ -1456,7 +1503,7 @@
           <span class="polaroid-date"><i class="fa-solid fa-moon" style="color: #8b5cf6;"></i> 19.11 • Sayangku Disenyapkan 🌙</span>
         </article>
 
-        <!-- FOTO SCREENSHOT VC 4 -->
+        <!-- FOTO 6: VC BENERIN RAMBUT -->
         <article class="polaroid-card" onclick="openLightbox(this)">
           <div class="vc-screen-wrapper">
             <div class="vc-top-bar">
@@ -1467,7 +1514,6 @@
               <span class="vc-call-duration">00.11 • VC</span>
             </div>
 
-            <!-- Foto Asli VC 4 (Hafizah Benerin Rambut & Habibilal Tersenyum) -->
             <img class="polaroid-img" src="images/vc4.jpg" alt="Ekspresi Lucu Nur Hafizah" loading="lazy" />
 
             <div class="vc-bottom-controls">
@@ -1483,7 +1529,7 @@
           <span class="polaroid-date"><i class="fa-solid fa-clock" style="color: #10b981;"></i> 00.11 • Malam Penuh Cerita ☕</span>
         </article>
 
-        <!-- FOTO 5: SPECIAL CUTOUT FINGER HEART -->
+        <!-- FOTO 7: SPECIAL CUTOUT FINGER HEART -->
         <article class="polaroid-card" onclick="openLightbox(this)">
           <div class="vc-screen-wrapper avatar-mode">
             <div class="vc-top-bar">
@@ -1494,7 +1540,6 @@
               <span class="vc-call-duration">16th Birthday</span>
             </div>
 
-            <!-- Foto Asli 5 (Hafizah Finger Heart Cutout) -->
             <img class="polaroid-img" src="images/vc5.png" alt="Saranghaeyo Nur Hafizah" loading="lazy" />
 
             <div class="vc-bottom-controls">
